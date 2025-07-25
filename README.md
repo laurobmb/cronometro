@@ -63,11 +63,6 @@ This is a web application project that displays a functional digital clock with 
     ```
 5.  **Access the application**: Open your browser and go to `http://localhost:8080`.
 
-## Technologies Used
-
-* **Backend**: Go (using the `net/http`, `html/template`, `log`, `sync`, and `time` packages)
-* **Frontend**: HTML5, CSS3, JavaScript (ES6)
-
 6. **Build**
 
     Linux
@@ -79,6 +74,11 @@ This is a web application project that displays a functional digital clock with 
     ```bash
     GOOS=windows GOARCH=amd64 go build -o stopwatch.exe main.go
     ```
+
+## Technologies Used
+
+* **Backend**: Go (using the `net/http`, `html/template`, `log`, `sync`, and `time` packages)
+* **Frontend**: HTML5, CSS3, JavaScript (ES6)
 
 ## 📜 Licença
 
