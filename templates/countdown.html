@@ -1,0 +1,61 @@
+<!-- templates/countdown.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="/static/css/countdown.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="/">Alarm Clock</a>
+            <a href="/countdown" class="active">Countdown Timer</a>
+            <a href="/pomodoro">Pomodoro Timer</a>
+        </div>
+
+        <div class="title-container">
+            <img src="/static/images/alarm-clock-icon.png" alt="Alarm Clock Icon" class="title-icon">
+            <h1>Countdown Timer</h1>
+        </div>
+
+        <div id="timer-display" class="hidden">00:00:00</div>
+
+        <div class="time-inputs">
+            <input type="number" id="hours-input" min="0" max="99" value="0">
+            <span>:</span>
+            <input type="number" id="minutes-input" min="0" max="59" value="10">
+            <span>:</span>
+            <input type="number" id="seconds-input" min="0" max="59" value="0">
+        </div>
+        <p class="input-labels">
+            <span>Hours</span>
+            <span>Minutes</span>
+            <span>Seconds</span>
+        </p>
+
+        <div class="controls">
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" class="hidden">Pause</button>
+            <button id="reset-btn" class="hidden">Reset</button>
+        </div>
+
+        <div class="sound-selection">
+            <h2>Choose Sound</h2>
+            <div class="sound-buttons">
+                <button class="sound-btn selected" data-sound="alarm_1.mp3">Sound 1</button>
+                <button class="sound-btn" data-sound="alarm_2.mp3">Sound 2</button>
+                <button class="sound-btn" data-sound="alarm_3.mp3">Sound 3</button>
+                <button class="sound-btn" data-sound="alarm_4.mp3">Sound 4</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/countdown.js"></script>
+</body>
+</html>

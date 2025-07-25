@@ -106,6 +106,30 @@ func setAlarmHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
+// NOVO HANDLER para a página Pomodoro
+func pomodoroHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("-> Executando a função: pomodoroHandler")
+	tmpl, err := template.ParseFiles("templates/pomodoro.html")
+	if err != nil {
+		log.Printf("ERRO: não foi possível encontrar o template pomodoro.html: %v", err)
+		http.Error(w, "Página não encontrada", http.StatusInternalServerError)
+		return
+	}
+	tmpl.Execute(w, nil)
+}
+
+// NEW HANDLER for the Countdown page
+func countdownHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("-> Executing function: countdownHandler")
+	tmpl, err := template.ParseFiles("templates/countdown.html")
+	if err != nil {
+		log.Printf("ERROR: could not find template countdown.html: %v", err)
+		http.Error(w, "Page not found", http.StatusInternalServerError)
+		return
+	}
+	tmpl.Execute(w, nil)
+}
+
 func main() {
 	// Cria um "servidor de arquivos" para a pasta "static".
 	fs := http.FileServer(http.Dir("./static"))
@@ -113,6 +137,8 @@ func main() {
 	http.Handle("/static/", loggingMiddleware(http.StripPrefix("/static/", fs)))
 	http.Handle("/", loggingMiddleware(http.HandlerFunc(clockHandler)))
 	http.Handle("/set-alarm", loggingMiddleware(http.HandlerFunc(setAlarmHandler)))
+	http.Handle("/pomodoro", loggingMiddleware(http.HandlerFunc(pomodoroHandler)))
+	http.Handle("/countdown", loggingMiddleware(http.HandlerFunc(countdownHandler)))
 
 	fmt.Println("Servidor iniciado em http://localhost:8080")
 	fmt.Println("Pressione CTRL+C para parar.")

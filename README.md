@@ -1,39 +1,53 @@
-# Digital Clock with Alarm in Go and JavaScript
+# Digital Clock, Pomodoro & Countdown Timer in Go
 
-This is a web application project that displays a functional digital clock with an alarm system. The backend is built in Go (Golang) to serve the page and register alarms, while the frontend uses HTML, CSS, and JavaScript to create a dynamic and interactive user interface.
+This is a multi-functional web application that provides a digital alarm clock, a Pomodoro timer, and a countdown timer. The backend is built in Go (Golang) to serve the pages and handle logic, while the frontend uses HTML, CSS, and JavaScript to create a dynamic and interactive user interface.
 
 <img src="photo/clock_1.png" alt="Clock">
 
 ## Features
 
-* **Real-time Clock**: Displays the current time in 12-hour format (AM/PM), updated every second.
-* **Alarm Registration**: Allows the user to set multiple alarms for specific times.
-* **Preset Alarms**: Quick access buttons to set an alarm for 1, 5, 10, 20, 30, 40, 50 minutes, or 1 hour from now.
-* **Sound Selection**: The user can choose from 4 different alarm sounds.
-* **Alarm Control**: A "Stop Alarm" button appears when an alarm is triggered.
-* **Smart Alarm List**:
-    * Alarms are automatically sorted in the list to show the next one to ring at the top.
-    * Alarms that have already triggered today are marked in red and struck through for easy identification.
-* **Modern Interface**: Dark, stylized layout with an icon next to the title.
-* **Server-side Logging**: The Go backend logs all incoming requests, making debugging and monitoring easier.
+* **Multi-Page Navigation**: Easily switch between the Alarm Clock, Pomodoro Timer, and Countdown Timer.
+* **Alarm Clock**:
+  * Displays the current time in 12-hour format (AM/PM), updated every second.
+  * Allows users to set multiple alarms.
+  * Quick-set buttons for alarms 1 to 60 minutes from now.
+  * Users can choose from 4 different alarm sounds.
+  * A "Stop Alarm" button appears when an alarm is triggered.
+  * The alarm list is automatically sorted to show the next alarm first.
+  * Triggered alarms are marked in red and struck through for clarity.
+* **Pomodoro Timer**:
+  * A classic Pomodoro timer with 25-minute focus sessions and 5-minute short breaks.
+  * Tracks completed sessions and provides a 15-minute long break after every four sessions.
+  * Start, Pause, and Reset controls.
+* **Countdown Timer**:
+  * Set a custom countdown from hours, minutes, and seconds.
+  * The same selection of 4 alarm sounds is available.
+  * Start, Pause, and Reset controls.
+* **Server-side Logging**: The Go backend logs all incoming requests for easy debugging and monitoring.
 
 ## Project Structure
 
 ```
 
-/relogio-alarme/
+/web-clock-app/
 |
 |-- main.go                \# Go backend server
 |
 |-- /templates/
-|   |-- index.html         \# Main web page structure
+|   |-- index.html         \# Alarm Clock page
+|   |-- pomodoro.html      \# Pomodoro Timer page
+|   |-- countdown.html     \# Countdown Timer page
 |
 |-- /static/
 |-- /css/
-|   |-- style.css      \# Stylesheet for the page's appearance
+|   |-- style.css      \# Styles for Alarm Clock
+|   |-- pomodoro.css   \# Styles for Pomodoro Timer
+|   |-- countdown.css  \# Styles for Countdown Timer
 |
 |-- /js/
-|   |-- script.js      \# Frontend logic (clock, alarms, interactions)
+|   |-- script.js      \# Logic for Alarm Clock
+|   |-- pomodoro.js    \# Logic for Pomodoro Timer
+|   |-- countdown.js   \# Logic for Countdown Timer
 |
 |-- /audio/
 |   |-- alarm\_1.mp3    \# Audio files for the alarms
@@ -43,8 +57,9 @@ This is a web application project that displays a functional digital clock with 
 |
 |-- /images/
 |-- alarm-clock-icon.png \# Icon displayed in the title
+|-- favicon.ico          \# Icon for the browser tab
 
-```
+````
 
 ## How to Run
 
@@ -54,32 +69,37 @@ This is a web application project that displays a functional digital clock with 
 
 ### Steps
 
-1.  **Clone or download the files** to a directory on your computer.
-2.  **Organize the files** according to the project structure described above. Make sure the 4 `.mp3` audio files and the `.png` image file are in the correct folders (`/static/audio/` and `/static/images/`).
-3.  **Open your terminal** and navigate to the project's root directory (`relogio-alarme`).
-4.  **Run the server** with the following command:
-    ```bash
-    go run main.go
-    ```
-5.  **Access the application**: Open your browser and go to `http://localhost:8080`.
+1. **Clone or download the files** to a directory on your computer.
+2. **Organize the files** according to the project structure described above. Make sure all audio and image files are in their correct folders.
+3. **Open your terminal** and navigate to the project's root directory.
+4. **Run the server** with the following command:
+   ```bash
+   go run main.go
+````
 
-6. **Build**
+5.  **Access the application**: Open your browser and go to `http://localhost:8080`. You can navigate to the other pages using the links at the top or by visiting `http://localhost:8080/pomodoro` and `http://localhost:8080/countdown`.
 
-    Linux
-    ```bash
-    GOOS=linux GOARCH=amd64 go build -o stopwatch.bin main.go
-    ```
+### Build
 
-    Windows
-    ```bash
-    GOOS=windows GOARCH=amd64 go build -o stopwatch.exe main.go
-    ```
+To create a standalone executable:
+
+**Linux**
+
+```bash
+GOOS=linux GOARCH=amd64 go build -o clock-app.bin main.go
+```
+
+**Windows**
+
+```bash
+GOOS=windows GOARCH=amd64 go build -o clock-app.exe main.go
+```
 
 ## Technologies Used
 
-* **Backend**: Go (using the `net/http`, `html/template`, `log`, `sync`, and `time` packages)
-* **Frontend**: HTML5, CSS3, JavaScript (ES6)
+  * **Backend**: Go (using the `net/http`, `html/template`, `log`, `sync`, and `time` packages)
+  * **Frontend**: HTML5, CSS3, JavaScript (ES6)
 
-## 📜 Licença
+## 📜 License
 
-Este projeto é distribuído sob a Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+This project is distributed under the MIT License. See the `LICENSE` file for more details.

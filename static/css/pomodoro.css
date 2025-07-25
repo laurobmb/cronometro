@@ -1,0 +1,119 @@
+/* static/css/pomodoro.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    background: #1e1e1e;
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 700px; /* Increased from 500px to 700px */
+}
+
+.nav-links {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    color: #00aaff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #333;
+}
+
+.nav-links a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #00aaff;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00aaff;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #00aaff;
+    margin-bottom: 20px;
+}
+
+#timer-display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6em;
+    font-weight: 700;
+    color: #f5f5f5;
+    margin: 20px 0;
+}
+
+#session-status {
+    font-size: 1.5em;
+    color: #aaa;
+    height: 30px;
+}
+
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.controls button {
+    padding: 10px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-btn {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+#pause-btn {
+    background-color: #ffc107; /* Amarelo */
+    color: #121212;
+}
+
+#reset-btn {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+}
+
+.session-counter {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.title-icon {
+    width: 100px;
+    height: 120px;
+}

@@ -1,14 +1,13 @@
 <!-- templates/index.html -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock with Alarm</title>
+    <title>Alarm Clock</title>
+    <!-- Corrected icon link -->
     <link rel="icon" type="image/x-icon" href="/static/images/alarm-clock-icon.ico">
-    <!-- Link para nossa folha de estilos CSS -->
     <link rel="stylesheet" href="/static/css/style.css">
-    <!-- Pré-carrega a fonte do Google para um visual mais moderno -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
@@ -16,38 +15,40 @@
 <body>
 
     <div class="container">
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="/" class="active">Alarm Clock</a>
+            <a href="/countdown">Countdown Timer</a>
+            <a href="/pomodoro">Pomodoro Timer</a>
+        </div>
+
         <div class="title-container">
-            <img src="/static/images/alarm-clock-icon.png" alt="Ícone de Despertador" class="title-icon">
-            <h1>Digital Clock with Alarm</h1>
+            <img src="/static/images/alarm-clock-icon.png" alt="Alarm Clock Icon" class="title-icon">
+            <h1>Digital Clock</h1>
         </div>
         
-        <!-- O relógio voltou para sua posição de destaque -->
         <div id="clock">00:00:00 AM</div>
         
-        <!-- Botão para parar o alarme, escondido por padrão -->
         <button id="stop-alarm-btn" class="hidden">Stop Alarm</button>
 
-        <!-- Nova seção para escolher o som do alarme -->
         <div class="sound-selection">
-            <h2>Choose your alarm sound</h2>
+            <h2>Choose Sound</h2>
             <div class="sound-buttons">
-                <button class="sound-btn selected" data-sound="alarm_1.mp3">Som 1</button>
-                <button class="sound-btn" data-sound="alarm_2.mp3">Som 2</button>
-                <button class="sound-btn" data-sound="alarm_3.mp3">Som 3</button>
-                <button class="sound-btn" data-sound="alarm_4.mp3">Som 4</button>
+                <button class="sound-btn selected" data-sound="alarm_1.mp3">Sound 1</button>
+                <button class="sound-btn" data-sound="alarm_2.mp3">Sound 2</button>
+                <button class="sound-btn" data-sound="alarm_3.mp3">Sound 3</button>
+                <button class="sound-btn" data-sound="alarm_4.mp3">Sound 4</button>
             </div>
         </div>
 
         <div class="alarm-section">
-            <!-- Formulário para adicionar um novo alarme -->
             <form action="/set-alarm" method="post" class="alarm-form">
-                <label for="alarmTime">Set new Alarm Time:</label>
+                <label for="alarmTime">Set new alarm:</label>
                 <input type="time" id="alarmTime" name="alarmTime" required>
                 <button type="submit">Add</button>
             </form>
         </div>
 
-        <!-- Seção para os botões de alarme predefinidos -->
         <div class="preset-alarms">
             <button class="preset-btn" data-minutes="1">1 min</button>
             <button class="preset-btn" data-minutes="5">5 min</button>
@@ -61,18 +62,16 @@
 
         <div class="alarm-list-section">
             <h2>Active Alarms</h2>
-            <!-- A lista de alarmes será preenchida aqui -->
             <ul id="alarms-list">
                 {{range .Alarms}}
                     <li>{{.}}</li>
                 {{else}}
-                    <li class="no-alarms">No Alarm Set.</li>
+                    <li class="no-alarms">No alarms set.</li>
                 {{end}}
             </ul>
         </div>
     </div>
 
-    <!-- Link para nosso arquivo JavaScript -->
     <script src="/static/js/script.js"></script>
 </body>
 </html>

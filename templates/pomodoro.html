@@ -1,0 +1,44 @@
+<!-- templates/pomodoro.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="/static/css/pomodoro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="/">Alarm Clock</a>
+            <a href="/countdown">Countdown Timer</a>
+            <a href="/pomodoro" class="active">Pomodoro Timer</a>
+        </div>
+
+        <div class="title-container">
+            <img src="/static/images/alarm-clock-icon.png" alt="Alarm Clock Icon" class="title-icon">
+            <h1>Pomodoro Timer</h1>
+        </div>
+
+        
+        <div id="timer-display">25:00</div>
+        <p id="session-status">Time to focus!</p>
+
+        <div class="controls">
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" class="hidden">Pause</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+
+        <div class="session-counter">
+            <p>Completed sessions: <span id="session-count">0</span></p>
+        </div>
+    </div>
+
+    <script src="/static/js/pomodoro.js"></script>
+</body>
+</html>
