@@ -1,0 +1,41 @@
+<!-- templates/stopwatch.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" href="/static/css/stopwatch.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="/">Alarm Clock</a>
+            <a href="/countdown">Countdown Timer</a>
+            <a href="/pomodoro">Pomodoro Timer</a>
+            <a href="/stopwatch" class="active">Stopwatch</a>
+        </div>
+
+        <h1>Stopwatch</h1>
+        
+        <div id="stopwatch-display">00:00:00.00</div>
+
+        <div class="controls">
+            <button id="start-btn">Start</button>
+            <button id="stop-btn" class="hidden">Stop</button>
+            <button id="lap-btn" class="hidden">Lap</button>
+            <button id="reset-btn" class="hidden">Reset</button>
+        </div>
+
+        <div class="laps-section">
+            <ol id="laps-list"></ol>
+        </div>
+    </div>
+
+    <script src="/static/js/stopwatch.js"></script>
+</body>
+</html>

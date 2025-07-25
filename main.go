@@ -130,6 +130,18 @@ func countdownHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, nil)
 }
 
+// NEW HANDLER for the Stopwatch page
+func stopwatchHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("-> Executing function: stopwatchHandler")
+	tmpl, err := template.ParseFiles("templates/stopwatch.html")
+	if err != nil {
+		log.Printf("ERROR: could not find template stopwatch.html: %v", err)
+		http.Error(w, "Page not found", http.StatusInternalServerError)
+		return
+	}
+	tmpl.Execute(w, nil)
+}
+
 func main() {
 	// Cria um "servidor de arquivos" para a pasta "static".
 	fs := http.FileServer(http.Dir("./static"))
@@ -139,6 +151,7 @@ func main() {
 	http.Handle("/set-alarm", loggingMiddleware(http.HandlerFunc(setAlarmHandler)))
 	http.Handle("/pomodoro", loggingMiddleware(http.HandlerFunc(pomodoroHandler)))
 	http.Handle("/countdown", loggingMiddleware(http.HandlerFunc(countdownHandler)))
+	http.Handle("/stopwatch", loggingMiddleware(http.HandlerFunc(stopwatchHandler)))
 
 	fmt.Println("Servidor iniciado em http://localhost:8080")
 	fmt.Println("Pressione CTRL+C para parar.")

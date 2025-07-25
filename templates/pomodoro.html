@@ -17,13 +17,13 @@
             <a href="/">Alarm Clock</a>
             <a href="/countdown">Countdown Timer</a>
             <a href="/pomodoro" class="active">Pomodoro Timer</a>
+            <a href="/stopwatch" class="active">Stopwatch</a>
         </div>
 
         <div class="title-container">
             <img src="/static/images/alarm-clock-icon.png" alt="Alarm Clock Icon" class="title-icon">
             <h1>Pomodoro Timer</h1>
         </div>
-
         
         <div id="timer-display">25:00</div>
         <p id="session-status">Time to focus!</p>
@@ -32,6 +32,17 @@
             <button id="start-btn">Start</button>
             <button id="pause-btn" class="hidden">Pause</button>
             <button id="reset-btn">Reset</button>
+        </div>
+
+        <div class="sound-selection">
+            <h2>Choose Sound</h2>
+            <div class="sound-buttons">
+                <button class="sound-btn selected" data-sound="alarm_1.mp3">Sound 1</button>
+                <button class="sound-btn" data-sound="alarm_2.mp3">Sound 2</button>
+                <button class="sound-btn" data-sound="alarm_3.mp3">Sound 3</button>
+                <button class="sound-btn" data-sound="alarm_4.mp3">Sound 4</button>
+                <button class="sound-btn" data-sound="alarm_5.mp3">Sound 5</button>
+            </div>
         </div>
 
         <div class="session-counter">

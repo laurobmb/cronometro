@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pauseBtn = document.getElementById('pause-btn');
     const resetBtn = document.getElementById('reset-btn');
     const sessionCountDisplay = document.getElementById('session-count');
+    const soundButtons = document.querySelectorAll('.sound-btn');
 
     let timer;
     let timeLeft = 25 * 60; // 25 minutes in seconds
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const workDuration = 25 * 60;
     const shortBreakDuration = 5 * 60;
     const longBreakDuration = 15 * 60;
-    const notificationSound = new Audio('/static/audio/alarm_1.mp3');
+    let selectedAlarmSound = 'alarm_1.mp3'; // Default sound
 
     function updateDisplay() {
         const minutes = Math.floor(timeLeft / 60);
@@ -36,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     updateDisplay();
                 } else {
                     clearInterval(timer);
+                    // Create and play the selected sound
+                    const notificationSound = new Audio(`/static/audio/${selectedAlarmSound}`);
                     notificationSound.play();
                     switchSession();
                 }
@@ -89,6 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
             startTimer();
         }, 2000);
     }
+
+    // Add event listeners for sound selection buttons
+    soundButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            soundButtons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            selectedAlarmSound = button.dataset.sound;
+        });
+    });
 
     startBtn.addEventListener('click', startTimer);
     pauseBtn.addEventListener('click', pauseTimer);
