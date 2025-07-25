@@ -44,7 +44,7 @@ This is a web application project that displays a functional digital clock with 
 |-- /images/
 |-- alarm-clock-icon.png \# Icon displayed in the title
 
-````
+```
 
 ## How to Run
 
@@ -67,3 +67,19 @@ This is a web application project that displays a functional digital clock with 
 
 * **Backend**: Go (using the `net/http`, `html/template`, `log`, `sync`, and `time` packages)
 * **Frontend**: HTML5, CSS3, JavaScript (ES6)
+
+6. **Build**
+
+    Linux
+    ```bash
+    GOOS=linux GOARCH=amd64 go build -o stopwatch.bin main.go
+    ```
+
+    Windows
+    ```bash
+    GOOS=windows GOARCH=amd64 go build -o stopwatch.exe main.go
+    ```
+
+## 📜 Licença
+
+Este projeto é distribuído sob a Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
