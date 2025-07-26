@@ -9,6 +9,8 @@ body {
     min-height: 100vh;
     margin: 0;
     text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .container {
@@ -17,18 +19,22 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     border: 1px solid #333;
-    width: 90%;
-    max-width: 700px; /* Increased from 500px to 700px */
+    width: 100%;
+    max-width: 700px;
 }
 
 .nav-links {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .nav-links a {
     color: #00aaff;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 5px;
     font-size: 1.1em;
     padding: 5px 10px;
     border-radius: 5px;
@@ -106,6 +112,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .sound-btn {
@@ -130,6 +137,30 @@ h1 {
     display: none;
 }
 
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #timer-display {
+        font-size: 4.5em;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .controls button {
+        width: 80%;
+    }
+}
 
 .title-container {
     display: flex;
@@ -137,6 +168,7 @@ h1 {
     align-items: center;
     gap: 15px;
 }
+
 .title-icon {
     width: 100px;
     height: 120px;

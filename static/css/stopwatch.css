@@ -9,6 +9,8 @@ body {
     min-height: 100vh;
     margin: 0;
     text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .container {
@@ -17,18 +19,22 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     border: 1px solid #333;
-    width: 90%;
+    width: 100%;
     max-width: 700px;
 }
 
 .nav-links {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .nav-links a {
     color: #00aaff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 5px;
     font-size: 1.1em;
     padding: 5px 10px;
     border-radius: 5px;
@@ -63,6 +69,7 @@ h1 {
 .controls {
     margin: 20px 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
 }
@@ -124,4 +131,41 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #stopwatch-display {
+        font-size: 3.5em;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    .controls button {
+        min-width: 100px;
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.title-icon {
+    width: 100px;
+    height: 120px;
 }
