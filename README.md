@@ -2,7 +2,24 @@
 
 This is a multi-functional web application that provides a digital alarm clock, a Pomodoro timer, and a countdown timer. The backend is built in Go (Golang) to serve the pages and handle logic, while the frontend uses HTML, CSS, and JavaScript to create a dynamic and interactive user interface.
 
-<img src="photo/clock_1.png" alt="Clock">
+<table>
+    <tr>
+        <td>
+            <img src="photo/clock-app-04.png" alt="Clock App Screenshot 1" >
+        </td>
+        <td>
+            <img src="photo/clock-app-02.png" alt="Clock App Screenshot 2" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="photo/clock-app-03.png" alt="Clock App Screenshot 3">
+        </td>
+        <td>
+            <img src="photo/clock-app-01.png" alt="Clock App Screenshot 4">
+        </td>
+    </tr>
+</table>
 
 ## Features
 
